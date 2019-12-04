@@ -21,7 +21,8 @@ public class DriverMemoryImplementation<V> implements DriverInterface {
 
 	@Override
 	public Collection<V> read() {
-		return this.db;
+		List<V> newDb = new ArrayList(this.db);
+		return newDb;
 	}
 
 }
