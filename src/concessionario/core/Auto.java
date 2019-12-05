@@ -21,5 +21,9 @@ public class Auto extends Veicolo {
 		return numeroPorte;
 	}
 
+	public void setNumeroPorte(Integer numeroPorte) {
+		this.numeroPorte = numeroPorte;
+	}
+
 
 }

@@ -1,9 +1,7 @@
 package concessionario.database;
 
 import java.util.Collection;
-
 import concessionario.core.Dipendente;
-
 public class TableDipendente implements TableInterface<Integer, Dipendente> {
 
 	private DriverInterface<Dipendente> driver;
@@ -42,9 +40,16 @@ public class TableDipendente implements TableInterface<Integer, Dipendente> {
 	}
 
 	@Override
-	public Dipendente update(Dipendente v) { //promozione ad amministratore?
-		
-		return null;
+	public void update(Dipendente d) { //promozione ad amministratore?
+		Collection<Dipendente> dipendenti = driver.read();
+		for(Dipendente dipendente:dipendenti) {
+			if(dipendente.getCid() == d.getCid()) {
+				dipendente.setNome(d.getNome());
+				dipendente.setCognome(d.getCognome());
+				dipendente.setAmministratore(d.getAmministratore());
+			}
+		}
+		driver.write(dipendenti);
 	}
 
 	@Override

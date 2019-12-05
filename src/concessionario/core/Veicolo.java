@@ -44,7 +44,23 @@ public abstract class Veicolo {
 	
 
 	
-	public abstract void descrivi(); 
+	public abstract void descrivi();
+
+	public void setProduttore(String produttore) {
+		this.produttore = produttore;
+	}
+
+	public void setModello(String modello) {
+		this.modello = modello;
+	}
+
+	public void setAlimentazione(String alimentazione) {
+		this.alimentazione = alimentazione;
+	}
+
+	public void setColore(String colore) {
+		this.colore = colore;
+	} 
 		
 	
 	

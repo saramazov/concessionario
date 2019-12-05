@@ -61,11 +61,11 @@ public class DriverMemoryVeicolo implements DriverInterface<Veicolo> {
 	public Boolean write(Collection<Veicolo> v) {
 		
 		try {
-			Collection<Veicolo> list = new ArrayList<Veicolo>();
-			list = read();
+			//Collection<Veicolo> list = new ArrayList<Veicolo>();
+			//list = read();
 			writer = new BufferedWriter(new FileWriter(this.principale));
 			
-			for(Veicolo veicolo:list) {
+			/*for(Veicolo veicolo:list) {
 				if(veicolo instanceof Auto) writer.write("Auto;");
 				else if(veicolo instanceof Moto) writer.write("Moto;");
 				writer.write(veicolo.getTarga()+";");
@@ -77,7 +77,7 @@ public class DriverMemoryVeicolo implements DriverInterface<Veicolo> {
 				if(veicolo instanceof Auto) writer.write(((Auto) veicolo).getNumeroPorte()+";");
 				else if(veicolo instanceof Moto) writer.write(((Moto) veicolo).getAltezzaSedile()+";");
 				writer.newLine();
-			}
+			}*/
 			
 			for(Veicolo veicolo:v) {
 				if(veicolo instanceof Auto) writer.write("Auto;");

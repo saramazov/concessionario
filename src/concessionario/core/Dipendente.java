@@ -33,5 +33,17 @@ public class Dipendente {
 	public Boolean getAmministratore() {
 		return amministratore;
 	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+
+	public void setAmministratore(Boolean amministratore) {
+		this.amministratore = amministratore;
+	}
 	
 }

@@ -67,6 +67,7 @@ public class DriverMemoryDipendente implements DriverInterface<Dipendente> {
 				writer.write(dip.getCid()+";");
 				writer.write(dip.getNome()+";");
 				writer.write(dip.getCognome()+";");
+				writer.write(dip.getAmministratore().toString());
 				writer.newLine();
 			}
 			writer.close();
