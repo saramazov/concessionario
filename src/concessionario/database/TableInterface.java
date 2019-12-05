@@ -10,7 +10,7 @@ public interface TableInterface<K, V> {
 	
 	public V get(K k);
 	
-	public V update(V v);
+	public void update(V v);
 	
 	public Boolean delete(K k);
 	

@@ -1,24 +1,40 @@
 package concessionario;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import concessionario.core.Auto;
 import concessionario.core.Dipendente;
+import concessionario.core.Moto;
+import concessionario.core.Veicolo;
 import concessionario.database.DriverInterface;
-import concessionario.database.DriverMemoryImplementation;
-import concessionario.database.TableDipendenteImplementation;
-import concessionario.database.TableInterface;
+import concessionario.database.DriverMemoryDipendente;
+import concessionario.database.DriverMemoryVeicolo;
+import concessionario.database.TableDipendente;
+import concessionario.database.TableVeicolo;
 
 public class Main {
 
 	public static void main(String[] args) {
-		DriverInterface<Dipendente> driver = new DriverMemoryImplementation();
-		TableInterface<Integer, Dipendente> tabellaDipendente = new TableDipendenteImplementation(driver);
+		DriverInterface<Veicolo> driver = new DriverMemoryVeicolo("prova.csv");
+		DriverInterface<Dipendente> driver2 = new DriverMemoryDipendente("prova2.csv");
+		TableVeicolo table = new TableVeicolo(driver);
+		TableDipendente table2 = new TableDipendente(driver2);
 		
-		tabellaDipendente.insert(new Dipendente(1, "Mario", "Rossi"));
-		tabellaDipendente.insert(new Dipendente(10, "Mario", "Rossi"));
-		tabellaDipendente.insert(new Dipendente(2, "Mario", "Rossi"));
+		//table.delete("c");
+		//table2.delete(123);
 		
-		for(Dipendente d : tabellaDipendente.get()) {
-			System.out.println(d);
-		}
+		//table.insert(new Auto("d", "fiat", "panda", "diesel", "giallo", 200.50, 3));
+		//table2.insert(new Dipendente(123, "luha", "rossi", false));
+		
+		Veicolo v = new Auto("d", "fiat", "punto", "diesel", "giallo", 200.50, 12);
+		table.update(v);
+		
+		Dipendente d = new Dipendente(123, "Leo", "Mos", true);
+		table2.update(d);
+		
+	
 	}
 
 }
