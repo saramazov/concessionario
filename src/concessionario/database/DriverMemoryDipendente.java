@@ -35,7 +35,7 @@ public class DriverMemoryDipendente implements DriverInterface<Dipendente> {
 			line = reader.readLine();
 			while(line != null) {
 				String[] lineSplit = line.trim().split(";");
-				Dipendente dip = new Dipendente(Integer.parseInt(lineSplit[0]),lineSplit[1],lineSplit[2]);
+				Dipendente dip = new Dipendente(Integer.parseInt(lineSplit[0]),lineSplit[1],lineSplit[2],Boolean.parseBoolean(lineSplit[3]));
 				list.add(dip);
 				line = reader.readLine();
 			}
@@ -52,16 +52,16 @@ public class DriverMemoryDipendente implements DriverInterface<Dipendente> {
 	public Boolean write(Collection<Dipendente> v) {
 		
 		try {
-			Collection<Dipendente> list = new ArrayList<Dipendente>();
-			list = read();
+			//Collection<Dipendente> list = new ArrayList<Dipendente>();
+			//list = read();
 			writer = new BufferedWriter(new FileWriter(this.principale));
 			
-			for(Dipendente dip:list) {
+			/*for(Dipendente dip:list) {
 				writer.write(dip.getCid()+";");
 				writer.write(dip.getNome()+";");
 				writer.write(dip.getCognome()+";");
 				writer.newLine();
-			}
+			}*/
 			
 			for(Dipendente dip:v) {
 				writer.write(dip.getCid()+";");
