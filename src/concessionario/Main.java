@@ -79,12 +79,10 @@ public class Main {
 		dip = tableD.get(cid);
 		
 		if (dip.getAmministratore()) {
-			String uscita;
-			do {
+			String uscita = "n";
+			while(uscita.equals("n") || uscita.equals("N")) {
 			System.out.println("Benvenuto "+dip.getNome()+ " "+dip.getCognome()+":\nSei un amministratore !");
 			System.out.println("\n1. Visualizza Veicoli\n2.Visualizza Dipendenti\n3.Modifica Veicoli\n4.Modifica Personale");
-			System.out.println("Se vuoi uscire, digita esci");
-			uscita = input.next();
 			int scelta=0;
 			scelta = input.nextInt();
 			switch(scelta) {
@@ -112,13 +110,18 @@ public class Main {
 					break;
 			}
 			
-			} while(!uscita.equals("esci"));
+			System.out.println("Vuoi uscire dal menu? [Y/N]");
+			uscita = input.next();
+			}
+			
 		}
 		
 	}
 
 		public static void modificaVeicoli() {
-			System.out.println("\n1.Inserisci nuovo veicolo\n.2Elimina veicolo (venduto)");
+			String uscita = "n";
+			while(uscita.equals("n") || uscita.equals("N")) {
+			System.out.println("\n1.Inserisci nuovo veicolo\n2.Elimina veicolo (venduto)");
 			int scelta = 0;
 			scelta = input.nextInt();
 			switch (scelta) {
@@ -128,15 +131,15 @@ public class Main {
 				switch (choice) {
 				case "auto":
 					System.out.println("Inserisci Targa: ");
-					String targa = input.nextLine();
+					String targa = input.next();
 					System.out.println("Inserisci produttore: ");
-					String produttore = input.nextLine();
+					String produttore = input.next();
 					System.out.println("Inserisci modello: ");
-					String modello = input.nextLine();
+					String modello = input.next();
 					System.out.println("Inserisci alimentazione: ");
-					String alimentazione = input.nextLine();
+					String alimentazione = input.next();
 					System.out.println("Inserisci colore: ");
-					String colore = input.nextLine();
+					String colore = input.next();
 					System.out.println("Inserisci prezzo: ");
 					Double prezzo = input.nextDouble();
 					System.out.println("Inserisci numero portiere: ");
@@ -145,15 +148,15 @@ public class Main {
 					break;
 				case "Auto":
 					System.out.println("Inserisci Targa: ");
-					targa = input.nextLine();
+					targa = input.next();
 					System.out.println("Inserisci produttore: ");
-					produttore = input.nextLine();
+					produttore = input.next();
 					System.out.println("Inserisci modello: ");
-					modello = input.nextLine();
+					modello = input.next();
 					System.out.println("Inserisci alimentazione: ");
-					alimentazione = input.nextLine();
+					alimentazione = input.next();
 					System.out.println("Inserisci colore: ");
-					colore = input.nextLine();
+					colore = input.next();
 					System.out.println("Inserisci prezzo: ");
 					prezzo = input.nextDouble();
 					System.out.println("Inserisci numero portiere: ");
@@ -162,15 +165,15 @@ public class Main {
 					break;
 				case "moto":
 					System.out.println("Inserisci Targa: ");
-					targa = input.nextLine();
+					targa = input.next();
 					System.out.println("Inserisci produttore: ");
-					produttore = input.nextLine();
+					produttore = input.next();
 					System.out.println("Inserisci modello: ");
-					modello = input.nextLine();
+					modello = input.next();
 					System.out.println("Inserisci alimentazione: ");
-					alimentazione = input.nextLine();
+					alimentazione = input.next();
 					System.out.println("Inserisci colore: ");
-					colore = input.nextLine();
+					colore = input.next();
 					System.out.println("Inserisci prezzo: ");
 					prezzo = input.nextDouble();
 					System.out.println("Inserisci altezza sedile: ");
@@ -179,15 +182,15 @@ public class Main {
 					break;
 				case "Moto":
 					System.out.println("Inserisci Targa: ");
-					targa = input.nextLine();
+					targa = input.next();
 					System.out.println("Inserisci produttore: ");
-					produttore = input.nextLine();
+					produttore = input.next();
 					System.out.println("Inserisci modello: ");
-					modello = input.nextLine();
+					modello = input.next();
 					System.out.println("Inserisci alimentazione: ");
-					alimentazione = input.nextLine();
+					alimentazione = input.next();
 					System.out.println("Inserisci colore: ");
-					colore = input.nextLine();
+					colore = input.next();
 					System.out.println("Inserisci prezzo: ");
 					prezzo = input.nextDouble();
 					System.out.println("Inserisci numero portiere: ");
@@ -210,6 +213,11 @@ public class Main {
 				default:
 					System.out.println("SELEZIONA UNA DELLE 4 POSSIBILITA'");
 					break;
+			}
+			
+			System.out.println("Hai finito di modificare veicoli? [Y/N]");
+			uscita = input.next();
+			
 			}
 }
 		
