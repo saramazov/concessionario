@@ -2,9 +2,9 @@ package concessionario.core;
 
 public class Dipendente {
 
-	private Integer cid;
-	private String nome;
-	private String cognome;
+	 private Integer cid;
+	 private String nome;
+	 private String cognome;
 	private Boolean amministratore;
 	
 	public Dipendente(Integer cid, String nome, String cognome, Boolean amministratore) {
@@ -27,7 +27,7 @@ public class Dipendente {
 	}
 
 	public String toString() {
-		return this.cid + ". " + this.nome + " " + this.cognome;
+		return this.getCid() + ". " + this.getNome() + " " + this.getCognome();
 	}
 
 	public Boolean getAmministratore() {

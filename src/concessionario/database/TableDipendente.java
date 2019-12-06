@@ -14,7 +14,7 @@ public class TableDipendente implements TableInterface<Integer, Dipendente> {
 	public Boolean insert(Dipendente v) {
 		Collection<Dipendente> dipendenti = driver.read();
 		for(Dipendente dipendente : dipendenti) {
-			if(dipendente.getCid() == v.getCid()) {
+			if(dipendente.getCid().equals(v.getCid())) {
 				return false;
 			}
 		}
@@ -28,22 +28,22 @@ public class TableDipendente implements TableInterface<Integer, Dipendente> {
 	}
 
 	@Override
-	public Dipendente get(Integer k) {   //si potrebbe controllare che non ritorni null (eccezione?)
+	public Dipendente get(Integer k) throws NullPointerException{   //si potrebbe controllare che non ritorni null (eccezione?)
 		Collection<Dipendente> dipendenti = driver.read();
 		for(Dipendente dipendente : dipendenti) {
-			if(dipendente.getCid() == k) {
+			if(dipendente.getCid().equals(k)) {
 				return dipendente;
 			}
 		}
 		
-		return null;
+		throw new NullPointerException();
 	}
 
 	@Override
 	public void update(Dipendente d) { //promozione ad amministratore?
 		Collection<Dipendente> dipendenti = driver.read();
 		for(Dipendente dipendente:dipendenti) {
-			if(dipendente.getCid() == d.getCid()) {
+			if(dipendente.getCid().equals(d.getCid())) {
 				dipendente.setNome(d.getNome());
 				dipendente.setCognome(d.getCognome());
 				dipendente.setAmministratore(d.getAmministratore());
@@ -54,13 +54,15 @@ public class TableDipendente implements TableInterface<Integer, Dipendente> {
 
 	@Override
 	public Boolean delete(Integer k) {
+		Boolean trovato = false;
 		Collection<Dipendente> dipendenti = driver.read();
 		for(Dipendente dipendente : dipendenti) {
-			if(dipendente.getCid() == k) {
+			if(dipendente.getCid().equals(k)) {
 				dipendenti.remove(dipendente);
+				trovato = true;
 			}
 		}
-		return driver.write(dipendenti);
+		return trovato && driver.write(dipendenti);
 	}
 
 	@Override

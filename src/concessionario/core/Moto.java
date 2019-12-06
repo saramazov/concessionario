@@ -10,7 +10,9 @@ public class Moto extends Veicolo {
 
 	@Override
 	public void descrivi() {
-		
+		System.out.println(
+				this.getTarga() + "-" + this.getProduttore() + "-" + this.getModello() + "-" + this.getAlimentazione()
+						+ "-" + this.getColore() + "-" + this.getPrezzo() + " € -" + this.getAltezzaSedile()+"m");
 	}
 
 	public Double getAltezzaSedile() {

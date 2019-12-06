@@ -13,8 +13,10 @@ public class Auto extends Veicolo {
 
 	@Override
 	public void descrivi() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(
+				this.getTarga() + "-" + this.getProduttore() + "-" + this.getModello() + "-" + this.getAlimentazione()
+						+ "-" + this.getColore() + "-" + this.getPrezzo() + " € -" + this.getNumeroPorte());
+
 	}
 
 	public Integer getNumeroPorte() {

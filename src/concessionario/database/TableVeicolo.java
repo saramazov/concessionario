@@ -62,13 +62,15 @@ public class TableVeicolo implements TableInterface<String, Veicolo> {
 
 	@Override
 	public Boolean delete(String k) {
+		Boolean trovato = false;
 		Collection<Veicolo> veicoli = driver.read();
 		for(int i=veicoli.size()-1; i>=0; i--) {
 			if(((Veicolo) veicoli.toArray()[i]).getTarga().equals(k)) {
 				veicoli.remove(((Veicolo) veicoli.toArray()[i]));
+				trovato = true;
 			}
 		}
-		return driver.write(veicoli);
+		return trovato && driver.write(veicoli);
 	}
 
 	@Override
